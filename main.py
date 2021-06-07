@@ -10,6 +10,25 @@ from flask_model import preprocess
 
 app = Flask(__name__)
 
+@app.route('/')
+def form():
+    return """
+        <html>
+            <body>
+                <h1>Fare Prediction</h1>
+                </br>
+                </br>
+                <p> Insert your CSV file and then download the Result
+                <form action="/transform" method="post" enctype="multipart/form-data">
+                    <input type="file" name="data_file" class="btn btn-block"/>
+                    </br>
+                    </br>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                </form>
+            </body>
+        </html>
+    """
+
 @app.route('/transform', methods=["POST"])
 def transform_view():
     if request.method == 'POST':
@@ -46,12 +65,12 @@ def transform_view():
     model = load_model('keras_model.h5')
     df = preprocess(data_test)
     prediction = model.predict(df)
-    #df_predict = pd.DataFrame(prediction, columns=["prediction"])
-    #df_predict.to_csv("prediction.csv", index=False, header=False, encoding='utf8')
+    df_predict = pd.DataFrame(prediction, columns=["prediction"])
+    df_predict.to_csv("prediction.csv", index=False, header=False, encoding='utf8')
     
-    #response = make_response(df_predict.to_csv())
-    #response.headers["Content-Disposition"] = "attachment; filename=result.csv"
-    return jsonify(prediction)
+    response = make_response(df_predict.to_csv())
+    response.headers["Content-Disposition"] = "attachment; filename=result.csv"
+    return jsonify(response)
     
 if (__name__ == "__main__"):
      app.run(host="0.0.0.0", port = 5000, debug=False)
