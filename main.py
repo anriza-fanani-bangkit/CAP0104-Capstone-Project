@@ -1,4 +1,4 @@
-from flask import Flask, make_response, request, render_template
+from flask import Flask, make_response, request, render_template, jsonify
 import io
 from io import StringIO
 import csv
@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import os
 from keras.models import load_model
-from flask_model import preprocess, predict
+from flask_model import preprocess
 
 app = Flask(__name__)
 
@@ -46,12 +46,12 @@ def transform_view():
     model = load_model('keras_model.h5')
     df = preprocess(data_test)
     prediction = model.predict(df)
-    df_predict = pd.DataFrame(prediction, columns=["prediction"])
-    df_predict.to_csv("prediction.csv", index=False, header=False, encoding='utf8')
+    #df_predict = pd.DataFrame(prediction, columns=["prediction"])
+    #df_predict.to_csv("prediction.csv", index=False, header=False, encoding='utf8')
     
-    response = make_response(df_predict.to_csv())
-    response.headers["Content-Disposition"] = "attachment; filename=result.csv"
-    return response
+    #response = make_response(df_predict.to_csv())
+    #response.headers["Content-Disposition"] = "attachment; filename=result.csv"
+    return jsonify(prediction)
     
 if (__name__ == "__main__"):
-     app.run(port = 5000)
+     app.run(host="0.0.0.0", port = 5000, debug=False)
