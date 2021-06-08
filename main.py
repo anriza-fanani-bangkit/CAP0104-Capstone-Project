@@ -70,7 +70,7 @@ def transform_view():
     
     response = make_response(df_predict.to_csv())
     response.headers["Content-Disposition"] = "attachment; filename=result.csv"
-    return jsonify(response)
+    return response
     
 if (__name__ == "__main__"):
      app.run(host="0.0.0.0", port = 5000, debug=False)
