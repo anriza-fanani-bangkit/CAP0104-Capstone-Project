@@ -17,7 +17,7 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     if request.method == 'POST':
-        f = request.files['data_file']
+        f = request.files['files']
         if not f:
             return "No file"
         
@@ -55,4 +55,4 @@ def predict():
     return response
     
 if (__name__ == "__main__"):
-     app.run(host='0.0.0.0/0', port = 5000, use_reloader=False, debug=False)
+     app.run(host='0.0.0.0', port = 5000, debug=False)
