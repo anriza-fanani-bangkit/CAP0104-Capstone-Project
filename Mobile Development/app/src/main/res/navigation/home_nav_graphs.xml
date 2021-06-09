@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graphs"
+    app:startDestination="@id/orderingFragment">
+
+    <fragment
+        android:id="@+id/orderingFragment"
+        android:name="com.example.angkoot.ui.ordering.OrderingFragment"
+        android:label="@string/ordering_title"
+        tools:layout="@layout/fragment_ordering" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.angkoot.ui.profile.ProfileFragment"
+        android:label="@string/profile_title"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

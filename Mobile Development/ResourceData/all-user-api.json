@@ -1,0 +1,43 @@
+{
+  "status": "OK",
+  "code": 200,
+  "total": 6,
+  "data": [
+    {
+      "id": "1",
+      "username": "anriza",
+      "password": "anriza1",
+      "phone": "0819999999"
+    },
+    {
+      "id": "2",
+      "username": "blessvalenta",
+      "password": "bless1",
+      "phone": "081777777"
+    },
+    {
+      "id": "3",
+      "username": "amelia",
+      "password": "amel1",
+      "phone": "0871111111"
+    },
+    {
+      "id": "4",
+      "username": "rully",
+      "password": "rul1",
+      "phone": "08505050505"
+    },
+    {
+      "id": "5",
+      "username": "hanif",
+      "password": "hanif1",
+      "phone": "0891555555"
+    },
+    {
+      "id": "6",
+      "username": "david",
+      "password": "david1",
+      "phone": "0876620000"
+    }
+  ]
+}

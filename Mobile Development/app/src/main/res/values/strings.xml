@@ -1,0 +1,27 @@
+<resources>
+<!--    <string name="google_maps_key">AIzaSyABTaGA514fh_dmCBOuKb-K-Mrhx75RC1s</string>-->
+    <string name="google_maps_key">AIzaSyDyfJbhzX31VKqr4BQMQwz1SQjpicyNv6E</string>
+    <string name="app_name">Angkoot</string>
+
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="phone_number">Phone number</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="headline">Angkoot</string>
+    <string name="headline_2">Go anywhere from everywhere easier.</string>
+    <string name="ordering_title">Ordering</string>
+    <string name="profile_title">Profile</string>
+    <string name="main_illustration_content_description">Car Ordering Illustration</string>
+
+    <string name="edt_phone_number_error_message">Phone number must be 11 or 12 digits</string>
+    <string name="edt_username_error_message">Username must be more than 6 characters</string>
+    <string name="edt_password_error_message">Password must contains min of 8 random characters</string>
+    <string name="edt_confirm_password_error_message">Password confirmation must be the same</string>
+
+    <string name="login_success_message">Successfully logged in</string>
+    <string name="login_failed_message">Failed to login</string>
+    <string name="register_success_message">Successfully registered</string>
+    <string name="register_failed_message">Failed to register</string>
+</resources>
