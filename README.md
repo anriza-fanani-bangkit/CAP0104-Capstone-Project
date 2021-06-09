@@ -34,7 +34,7 @@ pip install -r requirements.txt
 2. After that, we need to re-design the Model_Keras script so that it could be deployed in local web server using flask. Therefore we made **flask_model.py** for preprocessing and to try some predictions in localhost.
 3. Next, we have two different scripts for flask deployment: **flask_using_dataform.ipynb** and **main.ipynb**. It is basically the same scripts, but with a little differences. In **flask_using_dataform.ipynb** we are using data form to make a prediction by uploading the CSV file and clik the predict button, and for **main.ipynb** we erased the data form in order to deploy it in Google Compute Engine so that the predictions could be done straight and continuosly. **main.py** basically the same script but with python format.
 4. If you run **main.ipynb** script, you could try to send some POST requests using **requests.ipynb** or using POSTMAN service.
-### FLask model deployment in Google Compute Engine
+### Flask model deployment in Google Compute Engine
 We are basically doing these things from Alara Dirik's tutorial above with some adjustment. The details could be read [[here]](https://towardsdatascience.com/deploying-a-custom-ml-prediction-service-on-google-cloud-ae3be7e6d38f)
 1. First, you need to make a VM instance in Google Compute Engine (GCE). We are using Ubuntu 18.04 LTS and do not forget to allow the HTTP traffic.
 2. Next we need to configure the firewall rules for Flask because it is running on port 5000 in VPC Network > Firewall Rules.
@@ -107,4 +107,4 @@ sudo /etc/init.d/nginx restart
 cd CAP0104-Capstone-Project
 gunicorn --bind 0.0.0.0:5000 main:app
 ```
-13. Now, we could trigger the API VM from anywhere. In our project, we may trigger it from our Android app.
+13. Now, we could trigger the VM API from anywhere. In our project, we may trigger it from our Android app.
