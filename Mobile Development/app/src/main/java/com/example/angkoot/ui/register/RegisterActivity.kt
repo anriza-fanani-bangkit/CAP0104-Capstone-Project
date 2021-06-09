@@ -3,13 +3,16 @@ package com.example.angkoot.ui.register
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.angkoot.R
 import com.example.angkoot.databinding.ActivityRegisterBinding
+import com.example.angkoot.domain.model.User
 import com.example.angkoot.utils.EditTextInputUtils
-import com.example.angkoot.utils.ToastUtils
 import com.example.angkoot.utils.ext.isAllTrue
+import com.example.angkoot.utils.ext.text
+import com.google.firebase.database.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,13 +20,22 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private val viewModel: RegisterViewModel by viewModels()
 
+    private lateinit var database: DatabaseReference
+    private lateinit var usersRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupFirebaseDatabase()
         setupUI()
         observeData()
+    }
+
+    private fun setupFirebaseDatabase() {
+        database = FirebaseDatabase.getInstance().reference
+        usersRef = FirebaseDatabase.getInstance().getReference("users")
     }
 
     private fun setupUI() {
@@ -35,9 +47,7 @@ class RegisterActivity : AppCompatActivity() {
             edtPasswordRegister.addTextChangedListener(passwordTextWatcher)
             edtConfirmPasswordRegister.addTextChangedListener(confirmPasswordTextWatcher)
 
-            btnSignUp.setOnClickListener {
-                ToastUtils.show(applicationContext, getString(R.string.register_success_message))
-            }
+            btnSignUp.setOnClickListener { register() }
         }
     }
 
@@ -105,6 +115,24 @@ class RegisterActivity : AppCompatActivity() {
                     btnSignUp.isEnabled = validState.isAllTrue()
                 }
             }
+        }
+    }
+
+    private fun register() {
+        with(binding) {
+            val newUser = User(
+                edtPhoneRegister.text(),
+                edtUsernameRegister.text(),
+                edtPasswordRegister.text()
+            )
+
+            Log.d("Hehe", "user: $newUser")
+
+            val userId = usersRef.push().key?.filterIndexed { index, char -> index != 0 } ?: ""
+
+            Log.d("Hehe", "userId: $userId")
+
+            database.child("users").child(userId).setValue(newUser)
         }
     }
 

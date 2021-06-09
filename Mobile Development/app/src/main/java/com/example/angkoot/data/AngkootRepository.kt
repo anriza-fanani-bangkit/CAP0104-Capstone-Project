@@ -1,5 +1,6 @@
 package com.example.angkoot.data
 
+import androidx.lifecycle.asLiveData
 import com.example.angkoot.data.remote.RemoteDataSource
 import javax.inject.Inject
 
@@ -10,5 +11,5 @@ class AngkootRepository @Inject constructor(
         remote.searchPlaces(query)
 
     suspend fun getDetailPlacesOf(placeId: String) =
-        remote.getDetailPlacesOf(placeId)
+        remote.getDetailPlacesOf(placeId).asLiveData()
 }

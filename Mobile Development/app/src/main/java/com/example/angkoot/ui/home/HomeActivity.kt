@@ -47,4 +47,8 @@ class HomeActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
     }
+
+    companion object {
+        const val PARAMS_USER_ID = "PARAMS_USER_ID"
+    }
 }

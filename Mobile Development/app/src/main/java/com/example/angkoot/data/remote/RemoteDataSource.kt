@@ -1,6 +1,7 @@
 package com.example.angkoot.data.remote
 
 import com.example.angkoot.api.ApiEndpoint
+import com.example.angkoot.utils.ext.asModel
 import com.example.angkoot.vo.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
@@ -19,7 +20,7 @@ class RemoteDataSource @Inject constructor(
             val data = callResults.body()
 
             if (callResults.isSuccessful && data != null) {
-                emit(Resource.success(data.results))
+                emit(Resource.success(data.results?.asModel()))
             } else {
                 emit(Resource.error(null, callResults.message()))
             }
@@ -36,7 +37,7 @@ class RemoteDataSource @Inject constructor(
             val data = callResults.body()
 
             if (callResults.isSuccessful && data != null) {
-                emit(Resource.success(data.results))
+                emit(Resource.success(data.results?.asModel()))
             } else {
                 emit(Resource.error(null, callResults.message()))
             }
