@@ -47,7 +47,7 @@ sudo apt-get install bzip2 libxml2-dev libsm6 libxrender1 libfontconfig1
 wget https://repo.anaconda.com/miniconda/Miniconda3-4.7.10-Linux-x86_64.sh
 bash Miniconda3-4.7.10-Linux-x86_64.sh
 # make conda executable
-export PATH=/home/<based on your Google Cloud's name.miniconda3/bin:$PATH
+export PATH=/home/<based on your Google Cloud's name>/miniconda3/bin:$PATH
 rm Miniconda3-4.7.10-Linux-x86_64.sh
 # create and activate a new virtual environment
 conda create -n angkoot python=3.7
