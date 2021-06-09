@@ -46,7 +46,7 @@ def predict():
     
     data_test = pd.read_csv(StringIO(result), names=dnames_test, dtype=dtype_test, usecols=[0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13])
     
-    # load the model from disk
+    # load the model
     model = load_model('keras_model.h5')
     df = preprocess(data_test)
     prediction = model.predict(df)
