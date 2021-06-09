@@ -3,6 +3,8 @@
 ## Overview
 Angkoot is an app that has a purpose to digitalize Angkot Transportation in Surabaya, Indonesia. The services that Angkoot provides now are fare prediction for the order, trip distance estimation, and user registration.
 
+![title](angkoot.png)
+
 ## Credits
 For the fare prediction we are inspired from Dimitre Oliveira:
 https://github.com/dimitreOliveira/NewYorkCityTaxiFare
