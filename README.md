@@ -1,4 +1,4 @@
-# Angkoot Project by CAP0104 Capstone Project team Bangkit Academy 2021
+# Angkoot Project by CAP0104 Capstone Project team (Kirimas) Bangkit Academy 2021
 
 ## Overview
 Angkoot is an app that has a purpose to digitalize Angkot Transportation in Surabaya, Indonesia. The services that Angkoot provides now are fare prediction for the order, trip distance estimation, and user registration.
