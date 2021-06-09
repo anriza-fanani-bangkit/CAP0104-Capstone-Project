@@ -113,3 +113,4 @@ gunicorn --bind 0.0.0.0:5000 main:app
 
 ## End Result
 Because of the Android app is still under development, you may check the result by GET requests and POST requests with **test_processed.csv** with key values 'files' to http://34.101.176.23/ for GET requests (it should show "Kirimas was here") and http://34.101.176.23/predict for POST requests (it should show json file as a result of model predictions) as shown below:
+![title](postman_test.png)
