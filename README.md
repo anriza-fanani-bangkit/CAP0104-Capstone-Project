@@ -18,7 +18,7 @@ For the fare prediction, we are using only around 500.000 data from the whole da
 ## Step-by-Step
 These are steps that you could do:
 ### Train the model
-1. Download the dataset from Kaggle
+1. Download the dataset from Kaggle. [[dataset]](https://www.kaggle.com/c/new-york-city-taxi-fare-prediction)
 2. Clone this repository
 ```bash
 git clone https://github.com/anriza-fanani-bangkit/CAP0104-Capstone-Project/
@@ -87,7 +87,7 @@ sudo ln -s /etc/nginx/sites-available/angkoot_project /etc/nginx/sites-enabled/a
 ```
 10. Now, we may edit the configuration file.
 ```bash
-sudo nano /etc/nginx/sites-enabled/flask_project
+sudo nano /etc/nginx/sites-enabled/angkoot_project
 ```
 then, add this code below:
 ```bash
